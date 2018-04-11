@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>[moosti]</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="A time tracker" />
+        <meta name="keywords" content="pomodoro, timer, pomodoro technique, time tracker, management, moosti, gtd, zen" />
+        <meta name="author" content="Erick Jung" />
+        <link rel="shortcut icon" href="favicon.ico" />
+
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,300italic,600italic' rel='stylesheet' type='text/css'>
+
+        <link href="assets/stylesheet/switcher/switcher.core.min.css" rel="stylesheet" type="text/css"/>
+        <link id="main-style" href="assets/stylesheet/main_blue.css" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript" src="assets/javascript/lib/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/countdown.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/notification.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/jquery.tweetie.js"></script>
+
+        <script type="text/javascript" src="assets/javascript/lib/switcher/jquery.cookie.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/switcher/jquery.easing.min.js"></script>
+
+        <script type="text/javascript" src="assets/javascript/main.js"></script>
+        <script type="text/javascript" src="assets/javascript/moosti-min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!--[if IE]>
+            <style type="text/css">
+                ul.panels li.panel.panel_1 div.timer {
+                  font-size: 8.6em;
+                }
+            </style>
+        <![endif]-->
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-26843367-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+
+        <script type="text/javascript">
+        var appInsights=window.appInsights||function(config){
+            function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+        }({
+            instrumentationKey:"0120e97f-ec90-43bb-8ea0-db7e20b983ce"
+        });
+
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+        </script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=201415443203122";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    </head>
+    <body>
+
+        <div class="la-anim-2"></div>
+
+        <ul class="panels">
+
+            <li class="panel panel_1">
+                <div class="container">
+                    <div class="header" style="padding-bottom: 90px;">
+                        <div class="logo"></div>
+                        <ul>
+                            <li><a href="http://www.twitter.com/moosti" target="_blank" class="twitter">Twitter</a></li>
+                            <li><a href="https://www.facebook.com/pages/moosti/270214449680647" target="_blank" class="facebook">Facebook</a></li>
+                            <li><a href="mailto:erick@moosti.com" class="mail">Mail</a></li>
+                            <li><div class="audio_icon"></div>
+                                <input type="checkbox" id="check_audio" class="regular-checkbox" unchecked></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="timer clearfix">
+                        <center><p id="timerPosition"></p></center>
+                    </div>
+
+
+                    <div class="m_buttons clearfix" style="padding-bottom: 0px;">
+
+                            <div class=" floatLeft">
+                                <button id="focusButton" class="m_button m_button_color_n">.focus <font size="1"><span id="moostiTime"></span></font></button>
+                                <div class="slider_focus" style="margin-left:15px"></div>
+                                <input type="hidden" id="hidden_moosti"/>
+                            </div>
+                            <div class=" floatLeft">
+                                <button id="shortBreakButton" class="m_button m_button_color_n">.short brk <font size="1"><span id="shortTime"></span></font></button>
+                                <div class="slider_short" style="margin-left:13px"></div>
+                                <input type="hidden" id="hidden_moosti"/>
+                            </div>
+                            <div class=" floatLeft">
+                                <button id="longBreakButton" class="m_button m_button_color_n">.long brk <font size="1"><span id="longTime"></span></font></button>
+                                <div class="slider_long" style="margin-left:13px"></div>
+                                <input type="hidden" id="hidden_moosti"/>
+                            </div>
+                            <div class=" floatLeft">
+                                <button id="timerReset" class="m_button m_button_color_s">.stop<font size="1"><span id="longTime"></span></font></button>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="scroll">
+                    <div>Learn More <span class="arrow"></span></div>
+                </div>
+            </li>
+            <li class="panel panel_2">
+                <div class="container">
+                    <div class="columns ten left">
+                        <div class="about">
+                            <h2>about moosti</h2>
+                            <p>Moosti is a simple time tracker with similar functions described on Pomodoro Technique®, however, this tool is NOT an application or does have anything to do with the Pomodoro Technique®, and so, this application is not affiliated with, associated with nor endorsed by the Pomodoro Technique® or Francesco Cirillo.</p>
+                        </div>
+                        <div class="features">
+                            <h2>features</h2>
+                            <div class="columns alpha five">
+                                <ul>
+                                    <li>
+                                        <img src="assets/images/glyphicons_162_ipad.png" alt="Responsive Design" />
+                                        <span>Responsive Design</span>
+                                        <p>Now you can use moosti on the device of your choice (from desktop computer monitors to mobile phones).</p>
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/glyphicons_053_alarm.png" alt="Notifications" />
+                                        <span>Notifications</span>
+                                        <p>When the timer stops, we'll notify you with a desktop notification.</p>
+                                        <p>To enable the notification, just accept on the first finished timer, and for sound, just enable on top-right of page.</p>
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/glyphicons_137_cogwheels.png" alt="States" />
+                                        <span>Configuration</span>
+                                        <p>You don't need to configure your sets everytime you enter on the site, moosti now save your last configuration, including buttons and audio states.</p>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="columns omega five">
+                                <ul>
+                                     <li>
+                                        <img src="assets/images/glyphicons_092_tint.png" alt="Colors" />
+                                        <span>Colors</span>
+                                        <p>Choose between different color palettes, just go over the menu at right.</p>
+                                    </li>
+                                    <li>
+                                        <img src="assets/images/glyphicons_064_lightbulb.png" alt="Very objective" />
+                                        <span>Very objective</span>
+                                        <p>To play with moosti just set the timers and go:</p>
+                                        <p>- Focus: Set from 10 to 60 minutes;</p>
+                                        <p>- Short Break: Set from 3 to 5 minutes;</p>
+                                        <p>- Long Break: Set from 5 to 30 minutes;</p>
+                                        <p>Just remember: You can't pause!</p>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="browser_apps">
+                            <h2>browser application</h2>
+                            <p>For now you can add moosti as an chrome application, soon will be available for everyone!</p>
+                            <a href="https://chrome.google.com/webstore/search/moosti" target="_blank"><img src="assets/images/google_chrome_webstore.png" alt="Chrome Webstore"/></a>
+                        </div>
+                    </div>
+                    <div class="columns six right">
+                        <div class="fb-page" data-href="https://www.facebook.com/moosti-270214449680647/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+                        <div class="twitter" style="padding-top: 31px;">
+
+                            <div id="tweets"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </li>
+            <li class="panel footer">
+                <div class="container">Copyright © 2016 <a href="http://www.erickjung.com" target="_blank">Erick Jung</a>. <a href="http://pernambu.co" target="_blank">Made with &hearts; in Pernambuco</a></div>
+            </li>
+        </ul>
+
+
+        <script type="text/javascript" src="assets/javascript/lib/switcher/switcher.core.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/lib/switcher/switcher.load.js"></script>
+        <script type="text/javascript" src="assets/javascript/moosti-slider.js"></script>
+
+
+
+        <!-- UserVoice JavaScript SDK (only needed once on a page) -->
+        <script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/Bk9nmO4l5dnUKZhPFegoYQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
+
+    </body>
+</html>
