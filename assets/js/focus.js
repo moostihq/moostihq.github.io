@@ -266,12 +266,12 @@ $(function() {
 function buzzer() {
     // _gaq.push(['_trackEvent', 'buzzcheck', document.getElementById("check_audio").checked]);
     
-    $.cookie('audioCheck', document.getElementById("check_audio").checked);
+    // $.cookie('audioCheck', document.getElementById("check_audio").checked);
 
-    if (document.getElementById("check_audio").checked) {
+    // if (document.getElementById("check_audio").checked) {
         var b = new Audio("assets/audio/alarm.wav");
         b.load();
         b.play();
-    }
+    // }
 };
 
