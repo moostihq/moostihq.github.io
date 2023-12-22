@@ -207,11 +207,21 @@ function resetColors() {
 }
 
 $(function() {
+    document.getElementById('store').addEventListener('click', function() {
+        gtag('event', 'store', {
+            'type': 'clicked'
+        });
+    });
+
     var b = workGlobalVar * 60;
     $("#timerPosition").createTimer({
         time_in_seconds: workGlobalVar * 60
     });
     $("#focusButton").click(function() {
+        gtag('event', 'focusButton', {
+            'type': 'clicked'
+        });
+
         // _gaq.push(['_trackEvent', 'focusButton', 'clicked']);
 
         moostiValue = workGlobalVar * 60;
@@ -226,6 +236,10 @@ $(function() {
         changeColor("focusButton", "orange")
     });
     $("#shortBreakButton").click(function() {
+        gtag('event', 'shortBreakButton', {
+            'type': 'clicked'
+        });
+
         // _gaq.push(['_trackEvent', 'shortBreakButton', 'clicked']);
 
         shortValue = shortGlobalVar * 60;
@@ -240,6 +254,10 @@ $(function() {
         changeColor("shortBreakButton", "orange")
     });
     $("#longBreakButton").click(function() {
+        gtag('event', 'longBreakButton', {
+            'type': 'clicked'
+        });
+
         // _gaq.push(['_trackEvent', 'longBreakButton', 'clicked']);
 
         longValue = longGlobalVar * 60;
@@ -254,6 +272,9 @@ $(function() {
         changeColor("longBreakButton", "orange")
     });
     $("#timerReset").click(function() {
+        gtag('event', 'timerReset', {
+            'type': 'clicked'
+        });
         // _gaq.push(['_trackEvent', 'timerReset', 'clicked']);
 
         $("#timerPosition").resetTimer({
@@ -264,6 +285,10 @@ $(function() {
 });
 
 function buzzer() {
+    
+    gtag('event', 'buzzer', {
+        'type': 'fired'
+    });
     // _gaq.push(['_trackEvent', 'buzzcheck', document.getElementById("check_audio").checked]);
     
     // $.cookie('audioCheck', document.getElementById("check_audio").checked);
