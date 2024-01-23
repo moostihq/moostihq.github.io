@@ -50,11 +50,3 @@ $(".slider_long").slider({
 $("#moostiTime").html(workGlobalVar);
 $("#shortTime").html(shortGlobalVar);
 $("#longTime").html(longGlobalVar);
-
-// document.getElementById("check_audio").checked = $.cookie('audioCheck');
-
-// if(document.getElementById("check_audio").checked == null) {
-// 	document.getElementById("check_audio").checked = false;
-// 	$.cookie('audioCheck', false);
-// }	
-
