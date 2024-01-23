@@ -207,11 +207,11 @@ function resetColors() {
 }
 
 $(function() {
-    document.getElementById('store').addEventListener('click', function() {
-        gtag('event', 'store', {
-            'type': 'clicked'
-        });
-    });
+    // document.getElementById('store').addEventListener('click', function() {
+    //     gtag('event', 'store', {
+    //         'type': 'clicked'
+    //     });
+    // });
 
     var b = workGlobalVar * 60;
     $("#timerPosition").createTimer({
