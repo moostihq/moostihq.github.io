@@ -1,6 +1,6 @@
-workGlobalVar  = $.cookie('focusValue');
+workGlobalVar = $.cookie('focusValue');
 
-if(workGlobalVar == null) {
+if (workGlobalVar == null) {
     workGlobalVar = 25;
     $.cookie('focusValue', 25);
 }
@@ -8,15 +8,15 @@ if(workGlobalVar == null) {
 
 shortGlobalVar = $.cookie('shortValue');
 
-if(shortGlobalVar == null) {
+if (shortGlobalVar == null) {
     shortGlobalVar = 5;
     $.cookie('shortValue', 5);
 }
 
 
-longGlobalVar  = $.cookie('longValue');
+longGlobalVar = $.cookie('longValue');
 
-if(longGlobalVar == null) {
+if (longGlobalVar == null) {
     longGlobalVar = 15;
     $.cookie('longValue', 15);
 }
@@ -27,26 +27,26 @@ function desktopAlert() {
 
     // _gaq.push(['_trackEvent', 'alert', 'show']);
 
-	if(Notification.permission !== 'granted'){
-		Notification.requestPermission();
-	}
+    if (Notification.permission !== 'granted') {
+        Notification.requestPermission();
+    }
 
-	n = new Notification( "[moosti]", {
-		body: currentAlertDesc, 
-		icon : "logo48.png"
-	});
+    n = new Notification("[moosti]", {
+        body: currentAlertDesc,
+        icon: "logo48.png"
+    });
 
 }
 
-(function(d) {
+(function (d) {
     function f(a) {
         return d.extend({
             time_in_seconds: 3600,
             time_format: "MM:ss",
-            tick: function(b, h, c) {
+            tick: function (b, h, c) {
                 document.title = "(" + c + ")"
             },
-            buzzer: function(b) {
+            buzzer: function (b) {
                 document.title = currentAlertDesc;
                 desktopAlert();
                 buzzer()
@@ -55,7 +55,7 @@ function desktopAlert() {
         }, a)
     }
     d.fn.extend({
-        createTimer: function(c) {
+        createTimer: function (c) {
             var b = f(c);
             timer_local = false;
             var a = this;
@@ -65,13 +65,13 @@ function desktopAlert() {
             }
             return this
         },
-        startTimer: function(b) {
+        startTimer: function (b) {
             var a = f(b);
-            return this.each(function() {
+            return this.each(function () {
                 var c = d(this).data("countdown.state", "running");
                 var l = c.data("countdown.timer_id");
                 var j = new Date().getTime() + c.data("countdown.duration");
-                var k = setInterval(function() {
+                var k = setInterval(function () {
                     if (l == c.data("countdown.timer_id") && c.data("countdown.state") == "running") {
                         var g = Math.round((j - new Date().getTime()) / 1000);
                         if (g <= 0) {
@@ -89,22 +89,22 @@ function desktopAlert() {
                 }, 1000)
             })
         },
-        resetTimer: function(c) {
+        resetTimer: function (c) {
             var b = f(c);
             document.title = "[moosti]";
             var a = this;
             a.text(e(new Date(b.time_in_seconds * 1000), b.time_format)).data("countdown.duration", b.time_in_seconds * 1000).data("countdown.state", "ready").data("countdown.timer_id", new Date().getTime());
             return this
         },
-        pauseTimer: function() {
+        pauseTimer: function () {
             return this.data("countdown.state", "paused")
         }
     });
-    var e = function() {
+    var e = function () {
         var h = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
             c = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
             a = /[^-+\dA-Z]/g,
-            b = function(g, j) {
+            b = function (g, j) {
                 g = String(g);
                 j = j || 2;
                 while (g.length < j) {
@@ -112,7 +112,7 @@ function desktopAlert() {
                 }
                 return g
             };
-        return function(y, E, I) {
+        return function (y, E, I) {
             var B = e;
             if (arguments.length == 1 && Object.prototype.toString.call(y) == "[object String]" && !/\d/.test(y)) {
                 E = y;
@@ -166,7 +166,7 @@ function desktopAlert() {
                     o: (C > 0 ? "-" : "+") + b(Math.floor(Math.abs(C) / 60) * 100 + Math.abs(C) % 60, 4),
                     S: ["th", "st", "nd", "rd"][m % 10 > 3 ? 0 : (m % 100 - m % 10 != 10) * m % 10]
                 };
-            return E.replace(h, function(i) {
+            return E.replace(h, function (i) {
                 return i in A ? A[i] : i.slice(1, i.length - 1)
             })
         }
@@ -192,21 +192,22 @@ function desktopAlert() {
 })(jQuery);
 
 function changeColor(id, color) {
-
     const button = document.getElementById(id);
     button.style.background = color;
-    // button.style.border = color;
-    // button.style.background = "white";
-    // button.style.border = "3px solid black";
+}
+
+function resetColor(id) {
+    const button = document.getElementById(id);
+    button.style = 'btn-primary';
 }
 
 function resetColors() {
-    changeColor("focusButton", "#183B56")
-    changeColor("shortBreakButton", "#183B56")
-    changeColor("longBreakButton", "#183B56")
+    resetColor("focusButton")
+    resetColor("shortBreakButton")
+    resetColor("longBreakButton")
 }
 
-$(function() {
+$(function () {
     // document.getElementById('store').addEventListener('click', function() {
     //     gtag('event', 'store', {
     //         'type': 'clicked'
@@ -217,7 +218,7 @@ $(function() {
     $("#timerPosition").createTimer({
         time_in_seconds: workGlobalVar * 60
     });
-    $("#focusButton").click(function() {
+    $("#focusButton").click(function () {
         gtag('event', 'focusButton', {
             'type': 'clicked'
         });
@@ -235,7 +236,7 @@ $(function() {
         resetColors();
         changeColor("focusButton", "orange")
     });
-    $("#shortBreakButton").click(function() {
+    $("#shortBreakButton").click(function () {
         gtag('event', 'shortBreakButton', {
             'type': 'clicked'
         });
@@ -253,7 +254,7 @@ $(function() {
         resetColors();
         changeColor("shortBreakButton", "orange")
     });
-    $("#longBreakButton").click(function() {
+    $("#longBreakButton").click(function () {
         gtag('event', 'longBreakButton', {
             'type': 'clicked'
         });
@@ -271,7 +272,7 @@ $(function() {
         resetColors();
         changeColor("longBreakButton", "orange")
     });
-    $("#timerReset").click(function() {
+    $("#timerReset").click(function () {
         gtag('event', 'timerReset', {
             'type': 'clicked'
         });
@@ -285,18 +286,13 @@ $(function() {
 });
 
 function buzzer() {
-    
+
     gtag('event', 'buzzer', {
         'type': 'fired'
     });
-    // _gaq.push(['_trackEvent', 'buzzcheck', document.getElementById("check_audio").checked]);
-    
-    // $.cookie('audioCheck', document.getElementById("check_audio").checked);
 
-    // if (document.getElementById("check_audio").checked) {
-        var b = new Audio("assets/audio/alarm.wav");
-        b.load();
-        b.play();
-    // }
+    var b = new Audio("assets/audio/alarm.wav");
+    b.load();
+    b.play();
 };
 
