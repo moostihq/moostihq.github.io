@@ -78077,7 +78077,7 @@ if(n==null)n=$.aK=B.R
 s=n.cE(null,t.Uh)
 r=s.ax.gm().w
 m=B.zh.i(0,r)
-q=m==null?"assets/audio/dhvmagellon.mp3":m
+q=m==null?"assets/assets/audio/dhvmagellon.mp3":m
 p=v.G.document.createElement("audio")
 p.src=q
 p.volume=0.3
@@ -85263,7 +85263,7 @@ B.Cr=new A.k(65667)
 B.CU=new A.k(786994)
 B.zg=new A.U(B.YK,[B.Ce,B.BV,B.dJ,B.dL,B.Bk,B.Bj,B.Bi,B.Bl,B.C2,B.C0,B.C1,B.AV,B.AS,B.AL,B.AQ,B.AR,B.Cu,B.Ct,B.CP,B.CT,B.CQ,B.CO,B.CS,B.CN,B.CR,B.d4,B.AW,B.BD,B.dH,B.eM,B.C7,B.BY,B.BX,B.Bf,B.AJ,B.AA,B.AB,B.AC,B.AD,B.AE,B.AF,B.AG,B.AH,B.AI,B.Cs,B.CD,B.Bg,B.AK,B.AP,B.kD,B.kD,B.AZ,B.B7,B.B8,B.B9,B.BG,B.BH,B.BI,B.BJ,B.BK,B.BL,B.BM,B.B_,B.BN,B.BO,B.BP,B.BQ,B.BR,B.B0,B.B1,B.B2,B.B3,B.B4,B.B5,B.B6,B.C_,B.eL,B.zA,B.zG,B.zP,B.zQ,B.zR,B.zS,B.zT,B.zU,B.zV,B.zH,B.zI,B.zJ,B.zK,B.zL,B.zM,B.zN,B.zO,B.zW,B.zX,B.zY,B.zZ,B.A_,B.A0,B.A1,B.A2,B.A3,B.A4,B.A5,B.A6,B.A7,B.A8,B.A9,B.BT,B.Bd,B.zy,B.Bc,B.BC,B.C4,B.C6,B.C5,B.Aa,B.Ab,B.Ac,B.Ad,B.Ae,B.Af,B.Ag,B.Ah,B.Ai,B.Aj,B.Ak,B.Al,B.Am,B.An,B.Ao,B.Ap,B.Aq,B.Ar,B.As,B.At,B.Au,B.Av,B.Aw,B.Ax,B.Ay,B.Az,B.CY,B.C9,B.Ca,B.Cb,B.Cc,B.Cd,B.CI,B.CH,B.CM,B.CJ,B.CG,B.CL,B.CW,B.CV,B.CX,B.Cy,B.Cw,B.Cv,B.CE,B.Cx,B.Cz,B.CF,B.CC,B.CA,B.CB,B.dK,B.eO,B.zF,B.AO,B.C8,B.hH,B.BA,B.Br,B.Bs,B.Bt,B.Bu,B.Bv,B.Bw,B.Bx,B.By,B.Bz,B.Bp,B.Ci,B.Co,B.Cp,B.C3,B.BB,B.Bm,B.Bq,B.BF,B.Cm,B.Cl,B.Ck,B.Cj,B.Cn,B.Bn,B.Cg,B.Ch,B.Bo,B.BS,B.Bh,B.Be,B.BZ,B.Bb,B.AX,B.BE,B.Ba,B.zE,B.Cf,B.AU,B.zC,B.hG,B.BU,B.CK,B.AT,B.dI,B.eN,B.CZ,B.AY,B.Cq,B.AN,B.zz,B.zB,B.AM,B.zD,B.BW,B.Cr,B.CU],A.ag("U<j,k>"))
 B.YJ={DHVMagellon:0,Standard:1}
-B.zh=new A.U(B.YJ,["assets/audio/dhvmagellon.mp3","assets/audio/alarm.mp3"],t.w)
+B.zh=new A.U(B.YJ,["assets/assets/audio/dhvmagellon.mp3","assets/assets/audio/alarm.mp3"],t.w)
 B.YQ={BU:0,DD:1,FX:2,TP:3,YD:4,ZR:5}
 B.c2=new A.U(B.YQ,["MM","DE","FR","TL","YE","CD"],t.w)
 B.Zn=new A.k(458752)
