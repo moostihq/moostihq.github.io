@@ -1,0 +1,1 @@
+import{r}from"./index.Dkaqzkgy.js";import{r as u}from"./i18n.B2AVHcGw.js";const n=new Map;function p(s,e){n.set(s,e)}function m(s){const[e,a]=r.useState("en");r.useEffect(()=>{const t=u();t&&a(t)},[]);const o=n.get(s),c=o?.[e]??o?.en??{};return(t,i)=>c[t]??i??t}export{p as r,m as u};
