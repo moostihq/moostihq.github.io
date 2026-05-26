@@ -1,0 +1,42 @@
+/*
+  # Prevent clickjacking
+  X-Frame-Options: SAMEORIGIN
+
+  # Prevent MIME-type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Control referrer information sent with requests
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Enforce HTTPS for 1 year (enable once stable on HTTPS)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Restrict browser feature access
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()
+
+  # Basic XSS protection for older browsers
+  X-XSS-Protection: 1; mode=block
+
+  # Content Security Policy
+  # - default: only same origin
+  # - scripts: self + Google Analytics/Tag Manager
+  # - styles: self + Google Fonts + inline (needed by React)
+  # - fonts: self + Google Fonts
+  # - images: self + data URIs (canvas output) + Amazon product images (future)
+  # - connect: self + GA4 analytics endpoints (including regional collectors)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com; frame-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'self'
+
+# Cache static assets aggressively
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Audio files
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages — revalidate on each visit
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
